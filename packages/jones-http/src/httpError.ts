@@ -20,8 +20,20 @@ export class HttpUnauthorizedError extends HttpRequestError {
   }
 }
 
-export interface ProblemDetails {
-  status: number,
-  title: string,
-  detail: string
+export class ProblemDetails {
+  status?: number;
+  title: string;
+  detail?: string;
+
+  constructor(title: string, status?: number, detail?: string) {
+    this.title = title;
+    this.status = status;
+    this.detail = detail;
+  }
+
+  get message(): string | null {
+    return this.title
+        ? `${this.title}${this.detail ? "" : ` : ${this.detail}`}`
+        : null;
+  };
 }
