@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-taro%22"
   },
-  "homepage": "https://github.com/innwin/jones-ts/packages/tree/main/packages/jones-taro#readme",
+  "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-taro#readme",
   "dependencies": {
     "jones-ts": "^1.0.0",
     "jones-client": "^1.0.0"

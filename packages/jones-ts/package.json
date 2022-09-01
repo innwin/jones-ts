@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-ts%22"
   },
-  "homepage": "https://github.com/innwin/jones-ts/packages/tree/main/packages/jones-ts#readme",
+  "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-ts#readme",
   "devDependencies": {
     "@types/jest": "^29.0.0",
     "jest": "^28.1.3",

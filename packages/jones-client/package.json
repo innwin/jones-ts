@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-client%22"
   },
-  "homepage": "https://github.com/innwin/jones-ts/packages/tree/main/packages/jones-client#readme",
+  "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-client#readme",
   "devDependencies": {
     "typescript": "^4.8.2"
   }
