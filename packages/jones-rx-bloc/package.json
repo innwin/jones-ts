@@ -1,5 +1,5 @@
 {
-  "name": "jones-rx",
+  "name": "jones-rx-bloc",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -18,10 +18,11 @@
   "author": "innwin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-rx%22"
+    "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-rx-bloc%22"
   },
-  "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-rx#readme",
+  "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-rx-bloc#readme",
   "dependencies": {
+    "jones-ts": "^1.0.1",
     "rxjs": "^7.5.6"
   },
   "devDependencies": {
