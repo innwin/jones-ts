@@ -1,0 +1,31 @@
+{
+  "name": "jones-owja-ioc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "lint": "tslint -p tsconfig.json",
+    "build": "rm -fr ./dist ./types && tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innwin/jones-ts.git"
+  },
+  "keywords": [],
+  "author": "innwin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-owja-ioc%22"
+  },
+  "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-owja-ioc#readme",
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  },
+  "dependencies": {
+    "@owja/ioc": "^1.0.1",
+    "jones-ts": "^1.0.1"
+  }
+}

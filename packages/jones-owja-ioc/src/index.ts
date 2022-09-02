@@ -1,0 +1,1 @@
+export { iocContainer, ObjectContainer, ObjectContainerRegister } from "./objectContainer";
