@@ -20,6 +20,7 @@ spec-build/
 .tmp/
 .rn_temp/
 dist/
+es/
 types/
 deploy_versions/
 

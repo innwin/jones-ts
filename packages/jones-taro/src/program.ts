@@ -4,6 +4,7 @@ import {TYPE} from "./TYPE";
 import {Logger} from "./service/logger";
 import {ToastService} from "./service/toastService";
 import {DialogService} from "./service/dialogService";
+import {Storage} from "./service/storage";
 
 export class TaroProgram {
     static addTaroService(iocRegister: IObjectContainerRegister): IObjectContainerRegister {

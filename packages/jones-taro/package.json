@@ -1,13 +1,19 @@
 {
   "name": "jones-taro",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "",
+  "source": "./src/index.ts",
   "main": "./dist/index.js",
+  "module": "./es/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
+    "clean": "rimraf dist es types",
     "test": "jest --config jestconfig.json",
     "lint": "tslint -p tsconfig.json",
-    "build": "rm -fr ./dist ./types && tsc",
+    "build:es": "tsc --module esnext --outDir es",
+    "build:dist": "tsc --module CommonJS --outDir dist",
+    "build-parallel": "run-p build:**",
+    "build": "run-s -ln clean build-parallel",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -22,12 +28,17 @@
   },
   "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-taro#readme",
   "dependencies": {
-    "jones-ts": "^1.0.0",
-    "jones-client": "^1.0.0"
+    "jones-client": "^1.0.0",
+    "jones-ts": "^1.0.1"
   },
   "devDependencies": {
     "@tarojs/taro": "3.4.2",
     "@types/node": "^18.7.14",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "typescript": "^4.8.2"
+  },
+  "peerDependencies": {
+    "@tarojs/taro": "3.4.2"
   }
 }
