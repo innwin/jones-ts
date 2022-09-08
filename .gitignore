@@ -18,6 +18,7 @@ spec-js/
 spec-build/
 .out/
 .tmp/
+.temp/
 .rn_temp/
 dist/
 es/

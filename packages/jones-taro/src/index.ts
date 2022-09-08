@@ -1,6 +1,6 @@
 export { DialogService, getDialogService } from "./service/dialogService";
 export { Logger, getLogger } from "./service/logger";
-export { Storage, getLocalStorage } from "./service/storage";
+export { Storage, getStorage } from "./service/storage";
 export { ToastService, getToastService } from "./service/toastService";
 
 export { IPage, PageRouter } from "./pageRouter";

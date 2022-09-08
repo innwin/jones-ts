@@ -1,6 +1,6 @@
 {
   "name": "jones-taro",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "",
   "source": "./src/index.ts",
   "main": "./dist/index.js",

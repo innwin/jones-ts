@@ -22,6 +22,6 @@ export class Storage implements IStorage {
   }
 }
 
-export function getLocalStorage() {
+export function getStorage() {
   return Ioc.get<IStorage>(TYPE.Storage);
 }
