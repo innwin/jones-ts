@@ -1,19 +1,13 @@
 {
   "name": "jones-taro",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "",
-  "source": "./src/index.ts",
   "main": "./dist/index.js",
-  "module": "./es/index.js",
   "types": "./types/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist es types",
     "test": "jest --config jestconfig.json",
     "lint": "tslint -p tsconfig.json",
-    "build:es": "tsc --module esnext --outDir es",
-    "build:dist": "tsc --module CommonJS --outDir dist",
-    "build-parallel": "run-p build:**",
-    "build": "run-s -ln clean build-parallel",
+    "build": "rm -fr ./dist ./types && tsc",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -34,8 +28,6 @@
   "devDependencies": {
     "@tarojs/taro": "^3.5.5",
     "@types/node": "^18.7.14",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
     "typescript": "^4.8.2"
   }
 }
