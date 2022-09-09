@@ -1,5 +1,5 @@
 import {QueryParameter} from "jones-ts";
-import Taro from "@tarojs/taro";
+import {navigateTo, redirectTo, reLaunch, switchTab} from "@tarojs/taro";
 
 const paramsUselessKeys = ["package", "path"];
 
@@ -13,28 +13,28 @@ export class PageRouter {
 
   /** 保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 Router.back 可以返回到原页面。小程序中页面栈最多十层。 */
   static navigateTo(page: IPage): Promise<TaroGeneral.CallbackResult> {
-    return Taro.navigateTo({
+    return navigateTo({
       url: PageRouter.getUrl(page)
     });
   }
 
   /** 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。 */
   static redirectTo(page: IPage): Promise<TaroGeneral.CallbackResult> {
-    return Taro.redirectTo({
+    return redirectTo({
       url: PageRouter.getUrl(page)
     });
   }
 
   /** 关闭所有页面，打开到应用内的某个页面 */
   static reLaunch(page: IPage): Promise<TaroGeneral.CallbackResult> {
-    return Taro.reLaunch({
+    return reLaunch({
       url: PageRouter.getUrl(page)
     });
   }
 
   /** 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面 */
   static switchTab(page: IPage): Promise<TaroGeneral.CallbackResult> {
-    return Taro.switchTab({
+    return switchTab({
       url: PageRouter.getUrl(page)
     });
   }

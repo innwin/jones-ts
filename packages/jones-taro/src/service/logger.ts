@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import {getLogManager} from "@tarojs/taro";
 import {ILogger, Ioc} from "jones-ts";
 import {TYPE} from "../TYPE";
 
@@ -6,7 +6,7 @@ export class Logger implements ILogger {
 
   debug(message?: any, ...optionalParams: any[]): void {
     if (process.env.TARO_ENV == "weapp") {
-      Taro.getLogManager().debug(message, optionalParams);
+      getLogManager().debug(message, optionalParams);
     } else {
       console.debug(message, optionalParams);
     }
@@ -14,7 +14,7 @@ export class Logger implements ILogger {
 
   info(message?: any, ...optionalParams: any[]): void {
     if (process.env.TARO_ENV == "weapp") {
-      Taro.getLogManager().info(message, optionalParams);
+      getLogManager().info(message, optionalParams);
     } else {
       console.info(message, optionalParams);
     }
@@ -22,7 +22,7 @@ export class Logger implements ILogger {
 
   log(message?: any, ...optionalParams: any[]): void {
     if (process.env.TARO_ENV == "weapp") {
-      Taro.getLogManager().log(message, optionalParams);
+      getLogManager().log(message, optionalParams);
     } else {
       console.log(message, optionalParams);
     }
@@ -30,7 +30,7 @@ export class Logger implements ILogger {
 
   warn(message?: any, ...optionalParams: any[]): void {
     if (process.env.TARO_ENV == "weapp") {
-      Taro.getLogManager().warn(message, optionalParams);
+      getLogManager().warn(message, optionalParams);
     } else {
       console.warn(message, optionalParams);
     }
@@ -38,7 +38,7 @@ export class Logger implements ILogger {
 
   error(message?: any, ...optionalParams: any[]): void {
     if (process.env.TARO_ENV == "weapp") {
-      Taro.getLogManager().warn(message, optionalParams);
+      getLogManager().warn(message, optionalParams);
     } else {
       console.error(message, optionalParams);
     }

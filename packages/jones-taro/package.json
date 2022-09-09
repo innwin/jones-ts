@@ -1,6 +1,6 @@
 {
   "name": "jones-taro",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "",
   "source": "./src/index.ts",
   "main": "./dist/index.js",
@@ -37,8 +37,5 @@
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "typescript": "^4.8.2"
-  },
-  "peerDependencies": {
-    "@tarojs/taro": "^3.5.0"
   }
 }

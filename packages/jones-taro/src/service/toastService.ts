@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import {showToast, hideToast, showLoading, hideLoading} from "@tarojs/taro";
 import {Ioc} from "jones-ts";
 import {IToastService} from "jones-client";
 import {TYPE} from "../TYPE";
@@ -18,7 +18,7 @@ export class ToastService implements IToastService {
   }
 
   private static showBase(message: string, duration: number, isMask?: boolean, icon?: 'success' | 'error' | 'loading' | 'none') {
-    return Taro.showToast({
+    return showToast({
       title: message,
       duration: duration,
       mask: isMask,
@@ -27,18 +27,18 @@ export class ToastService implements IToastService {
   }
 
   hideToast() {
-    Taro.hideToast();
+    hideToast();
   }
 
   showLoading(message: string, isMask?: boolean): Promise<any> {
-    return Taro.showLoading({
+    return showLoading({
       title: message,
       mask: isMask
     })
   }
 
   hideLoading() {
-    Taro.hideLoading();
+    hideLoading();
   }
 }
 
