@@ -3,12 +3,9 @@
 @import "variables";
 @import "maps";
 
-@import "mixins/breakpoints";
 @import "mixins/utilities";
 
 @import "vendor/rfs";
-
-@import "root";
 
 @import "utilities";
 // Only use the utilities we need

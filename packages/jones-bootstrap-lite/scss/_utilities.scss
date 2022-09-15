@@ -98,14 +98,14 @@ $utilities: map-merge(
       "border": (
         property: border,
         values: (
-          null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+          null: $border-width $border-style $border-color,
           0: 0,
         )
       ),
       "border-top": (
         property: border-top,
         values: (
-          null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+          null: $border-width $border-style $border-color,
           0: 0,
         )
       ),
@@ -113,14 +113,14 @@ $utilities: map-merge(
         property: border-right,
         class: border-end,
         values: (
-          null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+          null: $border-width $border-style $border-color,
           0: 0,
         )
       ),
       "border-bottom": (
         property: border-bottom,
         values: (
-          null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+          null: $border-width $border-style $border-color,
           0: 0,
         )
       ),
@@ -128,17 +128,19 @@ $utilities: map-merge(
         property: border-left,
         class: border-start,
         values: (
-          null: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color),
+          null: $border-width $border-style $border-color,
           0: 0,
         )
       ),
       "border-color": (
         property: border-color,
         class: border,
-        local-vars: (
-          "border-opacity": 1
-        ),
-        values: $utilities-border-colors
+        values: map-merge(
+          $theme-colors,
+          (
+            "white": $white
+          )
+        )
       ),
       "border-width": (
         css-var: true,
@@ -455,7 +457,7 @@ $utilities: map-merge(
       "font-family": (
         property: font-family,
         class: font,
-        values: (monospace: var(--#{$prefix}font-monospace))
+        values: (monospace: $font-family-monospace)
       ),
       "font-size": (
         rfs: true,
@@ -527,17 +529,14 @@ $utilities: map-merge(
       "color": (
         property: color,
         class: text,
-        local-vars: (
-          "text-opacity": 1
-        ),
         values: map-merge(
-            $utilities-text-colors,
-            (
-              "muted": $text-muted,
-              "black-50": rgba($black, .5), // deprecated
-              "white-50": rgba($white, .5), // deprecated
-              "reset": inherit,
-            )
+          $theme-colors,
+          (
+            "muted": $text-muted,
+            "black-50": rgba($black, .5), // deprecated
+            "white-50": rgba($white, .5), // deprecated
+            "reset": inherit,
+          )
         )
       ),
       "text-opacity": (
@@ -555,14 +554,11 @@ $utilities: map-merge(
       "background-color": (
         property: background-color,
         class: bg,
-        local-vars: (
-          "bg-opacity": 1
-        ),
         values: map-merge(
-            $utilities-bg-colors,
-            (
-              "transparent": transparent
-            )
+          $theme-colors,
+          (
+            "transparent": transparent
+          )
         )
       ),
       "bg-opacity": (
@@ -580,7 +576,7 @@ $utilities: map-merge(
       "gradient": (
         property: background-image,
         class: bg,
-        values: (gradient: var(--#{$prefix}gradient))
+        values: (gradient: $gradient)
       ),
       // scss-docs-start utils-interaction
       "user-select": (
