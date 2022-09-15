@@ -1,0 +1,32 @@
+// Configuration
+@import "functions";
+@import "variables";
+@import "maps";
+
+@import "mixins/breakpoints";
+@import "mixins/utilities";
+
+@import "vendor/rfs";
+
+@import "utilities";
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+    $utilities,
+      (
+        "display",
+        "flex",
+        "flex-direction",
+        "flex-grow",
+        "flex-shrink",
+        "flex-wrap",
+        "justify-content",
+        "align-items",
+        "align-content",
+        "align-self",
+        "order",
+      )
+);
+
+// Utilities
+@import "utilities/api";

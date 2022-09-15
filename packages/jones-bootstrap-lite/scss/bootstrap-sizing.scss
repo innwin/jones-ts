@@ -1,0 +1,29 @@
+// Configuration
+@import "functions";
+@import "variables";
+@import "maps";
+
+@import "mixins/breakpoints";
+@import "mixins/utilities";
+
+@import "vendor/rfs";
+
+@import "utilities";
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+    $utilities,
+      (
+        "width",
+        "max-width",
+        "viewport-width",
+        "min-viewport-width",
+        "height",
+        "max-height",
+        "viewport-height",
+        "min-viewport-height",
+      )
+);
+
+// Utilities
+@import "utilities/api";

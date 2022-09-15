@@ -1,0 +1,35 @@
+// Configuration
+@import "functions";
+@import "variables";
+@import "maps";
+
+@import "mixins/breakpoints";
+@import "mixins/utilities";
+
+@import "vendor/rfs";
+
+@import "root";
+
+@import "utilities";
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+    $utilities,
+      (
+        "border",
+        "border-top",
+        "border-end",
+        "border-bottom",
+        "border-start",
+        "border-color",
+        "border-width",
+        "rounded",
+        "rounded-top",
+        "rounded-end",
+        "rounded-bottom",
+        "rounded-start"
+      )
+);
+
+// Utilities
+@import "utilities/api";
