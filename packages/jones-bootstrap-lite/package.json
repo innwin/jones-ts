@@ -1,6 +1,6 @@
 {
   "name": "jones-bootstrap-lite",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "sass": "scss/bootstrap.scss",
   "style": "dist/css/bootstrap.css",
