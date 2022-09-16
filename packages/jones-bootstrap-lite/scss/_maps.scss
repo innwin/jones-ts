@@ -52,3 +52,28 @@ $utilities-border-colors: map-loop($utilities-border, rgba-css-var, "$key", "bor
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 
 $gutters: $spacers !default;
+
+$theme-text-colors: map-merge(
+  $theme-colors,
+  (
+    "black": $black,
+    "white": $white,
+    "body": $body-color
+  )
+) !default;
+
+$theme-bg-colors: map-merge(
+  $theme-colors,
+  (
+    "black": $black,
+    "white": $white,
+    "body": $body-color
+  )
+) !default;
+
+$theme-border-colors: map-merge(
+  $theme-colors,
+  (
+    "white": $white
+  )
+) !default;

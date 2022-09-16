@@ -135,12 +135,7 @@ $utilities: map-merge(
       "border-color": (
         property: border-color,
         class: border,
-        values: map-merge(
-          $theme-colors,
-          (
-            "white": $white
-          )
-        )
+        values: $theme-border-colors
       ),
       "border-width": (
         css-var: true,
@@ -530,7 +525,7 @@ $utilities: map-merge(
         property: color,
         class: text,
         values: map-merge(
-          $theme-colors,
+          $theme-text-colors,
           (
             "muted": $text-muted,
             "black-50": rgba($black, .5), // deprecated
@@ -555,7 +550,7 @@ $utilities: map-merge(
         property: background-color,
         class: bg,
         values: map-merge(
-          $theme-colors,
+          $theme-bg-colors,
           (
             "transparent": transparent
           )
