@@ -115,11 +115,11 @@ $enable-important-utilities:  true !default;
 $spacer: 8px !default;
 $spacers: (
   0: 0,
-  1: $spacer * 2,
-  2: $spacer * 3,
-  3: $spacer * 4,
-  4: $spacer * 6,
-  5: $spacer * 8,
+  1: $spacer * 3,
+  2: $spacer * 5,
+  3: $spacer * 7,
+  4: $spacer * 8,
+  5: $spacer * 12,
 ) !default;
 // scss-docs-end spacer-variables-maps
 
