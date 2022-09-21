@@ -9,10 +9,8 @@
 // Configuration
 
 // Base value
-//$rfs-base-value: 1.25rem !default;
-//$rfs-unit: rem !default;
-$rfs-base-value: 2.5px !default;
-$rfs-unit: px !default;
+$rfs-base-value: 1.25rem !default;
+$rfs-unit: rem !default;
 
 @if $rfs-unit != rem and $rfs-unit != px {
   @error "`#{$rfs-unit}` is not a valid unit for $rfs-unit. Use `px` or `rem`.";
