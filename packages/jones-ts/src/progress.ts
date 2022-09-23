@@ -1,43 +1,51 @@
 import {Result} from "./result";
 
-export abstract class Progress<T> {
+export const ProgressInProgress: string = "progress-in-progress";
+export const ProgressComplete: string = "progress-complete";
+
+abstract class IProgress<T> {
+
+  abstract kind: string;
 
   isInProgress(): this is InProgress<T> {
-    return this instanceof InProgress;
+    return this.kind === ProgressInProgress;
   }
 
   isComplete(): this is Complete<T> {
-    return this instanceof Complete;
+    return this.kind === ProgressComplete;
   }
 
   resultOrNull(): T | null {
     return (this.isComplete() ? this.result : null) || null;
   }
+}
 
-  static contentOrNull<T>(progress: Progress<Result<T>>): T | null {
-    const result = progress.resultOrNull();
-    return result?.dataOrNull() || null;
-  }
+export function progressContentOrNull<T>(progress: Progress<Result<T>>): T | null {
+  const result = progress.resultOrNull();
+  return result?.dataOrNull() || null;
+}
 
-  static InProgress<T>() {
+export class InProgress<T> extends IProgress<T> {
+  kind = ProgressInProgress;
+
+  static create<T>() {
     return new InProgress<T>();
   }
+}
 
-  static Complete<T>(result?: T) {
+export class Complete<T> extends IProgress<T> {
+
+  kind = ProgressComplete;
+  result?: T;
+
+  constructor(result?: T) {
+    super();
+    this.result = result;
+  }
+
+  static create<T>(result?: T) {
     return new Complete<T>(result);
   }
 }
 
-export class InProgress<T> extends Progress<T> {}
-
-export class Complete<T> extends Progress<T> {
-
-  result?: T | null;
-
-  constructor(result?: T) {
-    super();
-    this.result = result || null;
-  }
-}
-
-// export type Progress<T> = InProgress<T> | Complete<T>;
+export type Progress<T> = InProgress<T> | Complete<T>;

@@ -7,7 +7,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:dist/css/",
-    "build": "npm-run-all clean css-compile"
+    "build": "npm-run-all clean css-compile",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",

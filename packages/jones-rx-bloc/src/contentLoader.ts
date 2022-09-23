@@ -1,5 +1,14 @@
 import {combineLatest, distinct, EMPTY, filter, firstValueFrom, map, mergeMap, Observable, of, share, startWith, Subject} from "rxjs";
-import {EmptyState, Progress, Result} from "jones-ts";
+import {
+  Empty,
+  EmptyFailure,
+  EmptyLoading,
+  EmptyState,
+  HasContent,
+  Progress,
+  progressContentOrNull,
+  Result
+} from "jones-ts";
 import {contentDataLoadBy, ContentDataLoader} from "./dataLoader/contentDataLoader";
 
 export class ContentLoader<C> {
@@ -22,7 +31,7 @@ export class ContentLoader<C> {
 
     this.content = this._contentLoad.pipe(
       mergeMap((progress) => {
-        const contentData = progress != null ? Progress.contentOrNull(progress) : null;
+        const contentData = progress != null ? progressContentOrNull(progress) : null;
         return contentData == null ? EMPTY : of(contentData);
       }),
       startWith(null),
@@ -34,19 +43,19 @@ export class ContentLoader<C> {
           if (progress != null && progress.isComplete()) {
             const result = progress.result;
             if (result?.isSuccess() == true) {
-              return EmptyState.Empty();
+              return Empty.create();
             }
-            return EmptyState.EmptyFailure(result?.message);
+            return EmptyFailure.create(result?.message);
           }
-          return EmptyState.EmptyLoading();
+          return EmptyLoading.create();
         }
-        return EmptyState.HasContent();
+        return HasContent.create();
       }),
-      startWith(EmptyState.Empty()),
+      startWith(Empty.create()),
     );
   }
 
-  load = async (): Promise<Result<C>|null> => {
+  refresh = async (): Promise<Result<C>|null> => {
     this._contentTrigger.next(ContentDataLoader.Operate.create());
     const progress = await firstValueFrom(
       this.progress.pipe(

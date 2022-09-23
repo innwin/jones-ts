@@ -8,7 +8,7 @@
     "test": "jest --config jestconfig.json",
     "lint": "tslint -p tsconfig.json",
     "build": "rm -fr ./dist ./types && tsc",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-http%22"
   },
   "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-http#readme",
-  "dependencies": {
+  "peerDependencies": {
     "uri-js": "^4.4.1"
   },
   "devDependencies": {

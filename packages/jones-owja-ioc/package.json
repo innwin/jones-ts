@@ -8,7 +8,7 @@
     "test": "jest --config jestconfig.json",
     "lint": "tslint -p tsconfig.json",
     "build": "rm -fr ./dist ./types && tsc",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,11 @@
     "url": "https://github.com/innwin/jones-ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+jones-owja-ioc%22"
   },
   "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-owja-ioc#readme",
-  "devDependencies": {
-    "typescript": "^4.8.2"
-  },
-  "dependencies": {
+  "peerDependencies": {
     "@owja/ioc": "^1.0.1",
     "jones-ts": "^1.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.2"
   }
 }

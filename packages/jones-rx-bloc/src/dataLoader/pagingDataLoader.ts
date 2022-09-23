@@ -1,9 +1,9 @@
 import {from, map, Observable, startWith, switchMap, takeWhile, tap} from "rxjs";
-import {Paging, Progress, Result, Success} from "jones-ts";
+import {Complete, InProgress, Paging, Progress, Result, Success} from "jones-ts";
 
 export namespace PagingDataLoader {
     export enum Type {
-        ReLoad, LoadNext
+        Refresh, LoadMore
     }
 
     export class Operate {
@@ -38,16 +38,16 @@ export function pagingDataLoadBy<ITEM, C extends Paging<ITEM>>(trigger: Observab
     let pagingLoaderOperate: PagingDataLoader.Operate;
     let lastListItems: ITEM[] = [];
     return trigger.pipe(
-        takeWhile((operate) => !isNotMore || operate.type == PagingDataLoader.Type.ReLoad),
+        takeWhile((operate) => !isNotMore || operate.type == PagingDataLoader.Type.Refresh),
         tap((pagingLoadOperate) => pagingLoaderOperate = pagingLoadOperate),
-        map((operate) => operate.type == PagingDataLoader.Type.LoadNext ? PagingDataLoader.Option.create(nextPage) : PagingDataLoader.Option.create(null)),
+        map((operate) => operate.type == PagingDataLoader.Type.LoadMore ? PagingDataLoader.Option.create(nextPage) : PagingDataLoader.Option.create(null)),
         switchMap((option) => from(pagingDataLoader(option.nextPage)).pipe(
             map((result) => {
-                if (result instanceof Success) {
+                if (result.isSuccess()) {
                     const paging = result.data;
                     nextPage = paging.nextPage;
                     isNotMore = nextPage == null;
-                    if (pagingLoaderOperate?.type == PagingDataLoader.Type.LoadNext) {
+                    if (pagingLoaderOperate?.type == PagingDataLoader.Type.LoadMore) {
                         lastListItems = [...lastListItems, ...paging.items];
                     } else {
                         lastListItems = paging.items;
@@ -56,8 +56,8 @@ export function pagingDataLoadBy<ITEM, C extends Paging<ITEM>>(trigger: Observab
                 }
                 return result;
             }),
-            map((result) => Progress.Complete(result)),
-            startWith(Progress.InProgress<Result<C>>())
+            map((result) => Complete.create(result)),
+            startWith(InProgress.create<Result<C>>())
         )),
     );
 }

@@ -1,5 +1,5 @@
 import {from, map, Observable, startWith, switchMap} from "rxjs";
-import {Progress, Result} from "jones-ts";
+import {Complete, InProgress, Progress, Result} from "jones-ts";
 
 export namespace ContentDataLoader {
     export class Operate {
@@ -15,8 +15,8 @@ export function contentDataLoadBy<C>(trigger: Observable<ContentDataLoader.Opera
         // filter((operate) => operate != null),
         switchMap(_=>
             from(contentDataLoader()).pipe(
-                map((result) => Progress.Complete(result)),
-                startWith(Progress.InProgress<Result<C>>())
+                map((result) => Complete.create(result)),
+                startWith(InProgress.create<Result<C>>())
             )
         )
     );

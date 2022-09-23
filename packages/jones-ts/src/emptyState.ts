@@ -1,4 +1,11 @@
-export abstract class EmptyState {
+export const EmptyStateEmptyLoading: string = "empty-state-EmptyLoading";
+export const EmptyStateEmpty: string = "empty-state-Empty";
+export const EmptyStateEmptyFailure: string = "empty-state-empty-failure";
+export const EmptyStateHasContent: string = "empty-state-has-content";
+
+abstract class IEmptyState {
+
+  abstract kind: string;
   message?: string | null;
 
   constructor(message?: string | null) {
@@ -6,44 +13,52 @@ export abstract class EmptyState {
   }
 
   isEmptyLoading(): this is EmptyLoading {
-    return this instanceof EmptyLoading;
+    return this.kind === EmptyStateEmptyLoading;
   }
 
   isEmpty(): this is Empty {
-    return this instanceof Empty;
+    return this.kind === EmptyStateEmpty;
   }
 
   isEmptyFailure(): this is EmptyFailure {
-    return this instanceof EmptyFailure;
+    return this.kind === EmptyStateEmptyFailure;
   }
 
   isHasContent(): this is HasContent {
-    return this instanceof HasContent;
+    return this.kind === EmptyStateHasContent;
   }
+}
 
-  static EmptyLoading(message?: string | null) {
+export class EmptyLoading extends IEmptyState {
+  kind = EmptyStateEmptyLoading;
+
+  static create(message?: string | null) {
     return new EmptyLoading(message);
   }
+}
 
-  static Empty(message?: string | null) {
+export class Empty extends IEmptyState {
+  kind = EmptyStateEmpty;
+
+  static create(message?: string | null) {
     return new Empty(message);
   }
+}
 
-  static EmptyFailure(message?: string | null) {
+export class EmptyFailure extends IEmptyState {
+  kind = EmptyStateEmptyFailure;
+
+  static create(message?: string | null) {
     return new EmptyFailure(message);
   }
+}
 
-  static HasContent(message?: string | null) {
+export class HasContent extends IEmptyState {
+  kind = EmptyStateHasContent;
+
+  static create(message?: string | null) {
     return new HasContent(message);
   }
 }
 
-export class EmptyLoading extends EmptyState {}
-
-export class Empty extends EmptyState {}
-
-export class EmptyFailure extends EmptyState {}
-
-export class HasContent extends EmptyState {}
-
-// export type EmptyState = EmptyLoading | Empty | EmptyFailure | HasContent;
+export type EmptyState = EmptyLoading | Empty | EmptyFailure | HasContent;
