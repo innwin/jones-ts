@@ -1,5 +1,5 @@
 import {Container, createResolve} from "@owja/ioc";
-import {IObjectContainer, IObjectContainerRegister, ObjectCreator} from "jones-ts";
+import {IObjectContainer, IObjectContainerRegister, ObjectCreator} from "@jonests/core";
 
 export const iocContainer = new Container();
 

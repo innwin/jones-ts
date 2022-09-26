@@ -9,7 +9,7 @@ import {
   Empty,
   EmptyLoading,
   HasContent, EmptyFailure, progressContentOrNull
-} from "jones-ts";
+} from "@jonests/core";
 import {pagingDataLoadBy, PagingDataLoader} from "./dataLoader/pagingDataLoader";
 
 export class PagingLoader<ITEM, C extends Paging<ITEM>> {

@@ -1,5 +1,5 @@
 import {from, map, Observable, startWith, switchMap, takeWhile, tap} from "rxjs";
-import {Complete, InProgress, Paging, Progress, Result, Success} from "jones-ts";
+import {Complete, InProgress, Paging, Progress, Result, Success} from "@jonests/core";
 
 export namespace PagingDataLoader {
     export enum Type {

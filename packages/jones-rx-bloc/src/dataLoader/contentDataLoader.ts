@@ -1,5 +1,5 @@
 import {from, map, Observable, startWith, switchMap} from "rxjs";
-import {Complete, InProgress, Progress, Result} from "jones-ts";
+import {Complete, InProgress, Progress, Result} from "@jonests/core";
 
 export namespace ContentDataLoader {
     export class Operate {

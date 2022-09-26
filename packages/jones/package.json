@@ -1,6 +1,6 @@
 {
-  "name": "jones-ts",
-  "version": "1.1.1",
+  "name": "@jonests/core",
+  "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",

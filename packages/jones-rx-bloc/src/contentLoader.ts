@@ -8,7 +8,7 @@ import {
   Progress,
   progressContentOrNull,
   Result
-} from "jones-ts";
+} from "@jonests/core";
 import {contentDataLoadBy, ContentDataLoader} from "./dataLoader/contentDataLoader";
 
 export class ContentLoader<C> {

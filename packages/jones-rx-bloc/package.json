@@ -1,6 +1,6 @@
 {
-  "name": "jones-rx-bloc",
-  "version": "1.1.2",
+  "name": "@jonests/rx-bloc",
+  "version": "1.0.1",
   "description": "",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/innwin/jones-ts/tree/main/packages/jones-rx-bloc#readme",
   "peerDependencies": {
-    "jones-ts": "^1.1.0",
+    "@jonests/core": "^1.0.0",
     "rxjs": "^7.5.6"
   },
   "devDependencies": {
